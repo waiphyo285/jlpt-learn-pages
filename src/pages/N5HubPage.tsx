@@ -8,22 +8,19 @@ import {
   kanjiLessons,
   mockExams,
   practiceGroups,
-  totalItemCount,
-  ResourceLink
+  totalItemCount
 } from '../data/n5Data';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { LessonCard } from '../components/LessonCard';
 import { ChapterAccordion } from '../components/ChapterAccordion';
 import { ProgressHeader } from '../components/ProgressHeader';
-import { VideoPlayerModal } from '../components/VideoPlayerModal';
 
 const STORAGE_KEY = 'jlpt_n5_completed_items_v1';
 
 export const N5HubPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'minna' | 'basic' | 'kanji' | 'exams' | 'groups' | 'info'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedVideo, setSelectedVideo] = useState<ResourceLink | null>(null);
   const [completedMap, setCompletedMap] = useState<Record<string, boolean>>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -240,7 +237,6 @@ export const N5HubPage: React.FC = () => {
                   chapter={ch}
                   completedMap={completedMap}
                   onToggleComplete={toggleComplete}
-                  onSelectVideo={setSelectedVideo}
                   isInitiallyOpen={idx === 0 && activeTab === 'minna'}
                 />
               ))}
@@ -268,7 +264,6 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
-                  onSelectVideo={setSelectedVideo}
                 />
               ))}
             </div>
@@ -280,7 +275,6 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
-                  onSelectVideo={setSelectedVideo}
                 />
               ))}
             </div>
@@ -391,11 +385,6 @@ export const N5HubPage: React.FC = () => {
           </section>
         )}
       </main>
-
-      <VideoPlayerModal
-        item={selectedVideo}
-        onClose={() => setSelectedVideo(null)}
-      />
 
       <Footer />
     </div>

@@ -24,9 +24,6 @@ export const Header: React.FC<HeaderProps> = ({ completedCount, totalCount }) =>
               <h1 className="text-xl font-bold tracking-tight text-white">
                 JLPT N5 <span className="text-gradient">Hub</span>
               </h1>
-              <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">
-                Myanmar
-              </span>
             </div>
             <p className="text-xs text-slate-400 font-medium">Daisy Learn Series</p>
           </div>

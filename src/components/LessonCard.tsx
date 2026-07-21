@@ -1,19 +1,17 @@
 import React from 'react';
-import { ExternalLink, CheckCircle2, Circle, PlayCircle, FileText, Hash, HelpCircle, Users, Download } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Circle, PlayCircle, FileText, Hash, HelpCircle, Users } from 'lucide-react';
 import { ResourceLink } from '../data/n5Data';
 
 interface LessonCardProps {
   item: ResourceLink;
   isCompleted: boolean;
   onToggleComplete: (id: string) => void;
-  onSelectVideo?: (item: ResourceLink) => void;
 }
 
 export const LessonCard: React.FC<LessonCardProps> = ({
   item,
   isCompleted,
-  onToggleComplete,
-  onSelectVideo
+  onToggleComplete
 }) => {
   const getTypeBadge = (type?: ResourceLink['type']) => {
     switch (type) {
@@ -62,8 +60,6 @@ export const LessonCard: React.FC<LessonCardProps> = ({
     }
   };
 
-  const isVideo = item.type === 'video';
-
   return (
     <div className={`group glass-card glass-card-hover rounded-2xl p-4 flex flex-col justify-between transition-all ${isCompleted ? 'opacity-75 bg-slate-950/40 border-emerald-500/20' : ''}`}>
       <div>
@@ -94,28 +90,16 @@ export const LessonCard: React.FC<LessonCardProps> = ({
       <div className="pt-3 mt-2 border-t border-slate-800/60 flex items-center justify-between gap-2">
         <span className="text-[11px] text-slate-500 font-mono">{item.id}</span>
 
-        <div className="flex items-center space-x-2">
-          {isVideo && onSelectVideo && (
-            <button
-              onClick={() => onSelectVideo(item)}
-              className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-rose-600/20 text-rose-300 hover:bg-rose-600 hover:text-white border border-rose-500/30 text-xs font-semibold transition-colors"
-            >
-              <PlayCircle className="w-3.5 h-3.5" />
-              <span>Watch / Download</span>
-            </button>
-          )}
-
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-1 text-xs font-semibold text-slate-400 hover:text-rose-300 transition-colors"
-            title="Open original link"
-          >
-            <span>FB Link</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
-        </div>
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-1 text-xs font-semibold text-slate-400 hover:text-rose-300 transition-colors"
+          title="Open original link"
+        >
+          <span>FB Link</span>
+          <ExternalLink className="w-3 h-3" />
+        </a>
       </div>
     </div>
   );
