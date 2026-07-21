@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { ChevronDown, BookOpen, CheckCircle2 } from 'lucide-react';
-import { MinnaChapter } from '../data/n5Data';
+import { MinnaChapter, ResourceLink } from '../data/n5Data';
 import { LessonCard } from './LessonCard';
 
 interface ChapterAccordionProps {
   chapter: MinnaChapter;
   completedMap: Record<string, boolean>;
   onToggleComplete: (id: string) => void;
+  onSelectVideo?: (item: ResourceLink) => void;
   isInitiallyOpen?: boolean;
 }
 
@@ -14,6 +15,7 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
   chapter,
   completedMap,
   onToggleComplete,
+  onSelectVideo,
   isInitiallyOpen = false
 }) => {
   const [isOpen, setIsOpen] = useState(isInitiallyOpen);
@@ -60,6 +62,7 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
               item={item}
               isCompleted={!!completedMap[item.id]}
               onToggleComplete={onToggleComplete}
+              onSelectVideo={onSelectVideo}
             />
           ))}
         </div>

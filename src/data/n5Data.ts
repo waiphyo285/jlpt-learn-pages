@@ -4,6 +4,8 @@ export interface ResourceLink {
   url: string;
   type?: 'video' | 'exam' | 'anskey' | 'group' | 'note' | 'counting' | 'kaiwa' | 'practice';
   chapter?: number;
+  localVideoPath?: string;
+  downloadFileName?: string;
 }
 
 export interface MinnaChapter {
