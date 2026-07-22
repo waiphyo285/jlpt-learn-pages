@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
             <span>for JLPT N5 Learners in Myanmar</span>
           </div>
           <div>
-            © {new Date().getFullYear()} Daisy Learn. All rights reserved.
+            © {new Date().getFullYear()} JLPT N5 Hub. All rights reserved.
           </div>
         </div>
       </div>

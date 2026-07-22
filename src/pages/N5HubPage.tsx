@@ -15,11 +15,12 @@ import { Footer } from '../components/Footer';
 import { LessonCard } from '../components/LessonCard';
 import { ChapterAccordion } from '../components/ChapterAccordion';
 import { ProgressHeader } from '../components/ProgressHeader';
+import { BottomNavigation, TabType } from '../components/BottomNavigation';
 
 const STORAGE_KEY = 'jlpt_n5_completed_items_v1';
 
 export const N5HubPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'minna' | 'basic' | 'kanji' | 'exams' | 'groups' | 'info'>('all');
+  const [activeTab, setActiveTab] = useState<TabType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [completedMap, setCompletedMap] = useState<Record<string, boolean>>(() => {
     try {
@@ -94,7 +95,7 @@ export const N5HubPage: React.FC = () => {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       <Header completedCount={completedCount} totalCount={totalItemCount} />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 md:pb-16">
         {/* Hero Banner */}
         <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-rose-950/40 p-6 sm:p-10 border border-slate-800/80 shadow-2xl mb-8 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -102,7 +103,7 @@ export const N5HubPage: React.FC = () => {
           <div className="max-w-3xl relative z-10">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold border border-rose-500/20 mb-4">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>JLPT N5 Complete Video & Study Resource Portal</span>
+              <span>Study Resource Portal</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
@@ -149,7 +150,7 @@ export const N5HubPage: React.FC = () => {
         {/* Search & Tabs Controls */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Tabs */}
-          <div className="flex items-center space-x-1 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+          <div className="hidden md:flex items-center space-x-1 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
             <button
               onClick={() => setActiveTab('all')}
               className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'all' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
@@ -386,6 +387,7 @@ export const N5HubPage: React.FC = () => {
         )}
       </main>
 
+      <BottomNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
       <Footer />
     </div>
   );
