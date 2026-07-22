@@ -39,6 +39,10 @@ export const N5HubPage: React.FC = () => {
     }
   }, [completedMap]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
+
   const toggleComplete = (id: string) => {
     setCompletedMap(prev => ({
       ...prev,
