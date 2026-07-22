@@ -3,7 +3,7 @@ import { Heart, Send, BookOpen, ExternalLink, Languages, AlertCircle } from 'luc
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="mt-20 border-t border-slate-800/80 bg-slate-950 text-slate-400 py-12">
+    <footer className="hidden md:block mt-20 border-t border-slate-800/80 bg-slate-950 text-slate-400 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
