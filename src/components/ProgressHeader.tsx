@@ -1,5 +1,6 @@
 import React from 'react';
-import { Trophy, RefreshCw, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Trophy, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { getPercentColorClass } from '../utils/progress';
 
 interface ProgressHeaderProps {
   completedCount: number;
@@ -38,7 +39,7 @@ export const ProgressHeader: React.FC<ProgressHeaderProps> = ({
               )}
             </div>
             <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-              {completedCount} of {totalCount} resources completed ({percentage}%)
+              {completedCount} of {totalCount} resources completed (<span className={getPercentColorClass(percentage)}>{percentage}%</span>)
             </p>
           </div>
         </div>

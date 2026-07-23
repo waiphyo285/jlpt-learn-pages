@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ChevronDown, BookOpen, CheckCircle2 } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { MinnaChapter } from '../data/n5Data';
 import { LessonCard } from './LessonCard';
+import { getPercentBadgeClass } from '../utils/progress';
 
 interface ChapterAccordionProps {
   chapter: MinnaChapter;
@@ -20,6 +21,7 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
 
   const completedCount = chapter.items.filter(item => completedMap[item.id]).length;
   const isAllDone = completedCount === chapter.items.length && chapter.items.length > 0;
+  const percent = Math.round((completedCount / chapter.items.length) * 100) || 0;
 
   return (
     <div className={`glass-card rounded-2xl overflow-hidden transition-all border ${isAllDone ? 'border-emerald-500/30' : 'border-slate-800'}`}>
@@ -34,9 +36,6 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <span>{chapter.title}</span>
-              {isAllDone && (
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 inline-block" />
-              )}
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
               {chapter.items.length} lesson parts • <span className={completedCount > 0 ? 'text-emerald-400 font-semibold' : ''}>{completedCount} completed</span>
@@ -45,8 +44,8 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
         </div>
 
         <div className="flex items-center space-x-3">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300">
-            {Math.round((completedCount / chapter.items.length) * 100)}%
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${getPercentBadgeClass(percent)}`}>
+            {percent}%
           </span>
           <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-rose-400' : ''}`} />
         </div>

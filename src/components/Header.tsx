@@ -1,5 +1,6 @@
 import React from 'react';
-import { BookOpen, Send, Sparkles, CheckCircle2, Languages } from 'lucide-react';
+import { Send, CheckCircle2, Languages } from 'lucide-react';
+import { getPercentColorClass } from '../utils/progress';
 
 interface HeaderProps {
   completedCount: number;
@@ -35,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ completedCount, totalCount }) =>
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
             <div>
               <div className="text-slate-400">Progress</div>
-              <div className="font-bold text-white">{completedCount} / {totalCount} ({percent}%)</div>
+              <div className="font-bold text-white">{completedCount} / {totalCount} (<span className={getPercentColorClass(percent)}>{percent}%</span>)</div>
             </div>
           </div>
 
