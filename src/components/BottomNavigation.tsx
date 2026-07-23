@@ -12,13 +12,62 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
   activeTab,
   setActiveTab,
 }) => {
-  const tabs: { id: TabType; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-    { id: 'all', label: 'All', icon: Layers },
-    { id: 'minna', label: 'Minna', icon: BookOpen },
-    { id: 'basic', label: 'Videos', icon: Video },
-    { id: 'kanji', label: 'Kanji', icon: Hash },
-    { id: 'exams', label: 'Exams', icon: HelpCircle },
-    { id: 'groups', label: 'Groups', icon: Users },
+  const tabs: {
+    id: TabType;
+    label: string;
+    icon: React.ComponentType<{ className?: string }>;
+    activeBg: string;
+    activeText: string;
+    activeIndicator: string;
+  }[] = [
+    {
+      id: 'all',
+      label: 'All',
+      icon: Layers,
+      activeBg: 'bg-indigo-500/10',
+      activeText: 'text-indigo-400',
+      activeIndicator: 'bg-gradient-to-r from-indigo-500 to-violet-500 shadow-indigo-500/50',
+    },
+    {
+      id: 'minna',
+      label: 'Minna',
+      icon: BookOpen,
+      activeBg: 'bg-rose-500/10',
+      activeText: 'text-rose-400',
+      activeIndicator: 'bg-gradient-to-r from-rose-500 to-pink-500 shadow-rose-500/50',
+    },
+    {
+      id: 'basic',
+      label: 'Videos',
+      icon: Video,
+      activeBg: 'bg-orange-500/10',
+      activeText: 'text-orange-400',
+      activeIndicator: 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/50',
+    },
+    {
+      id: 'kanji',
+      label: 'Kanji',
+      icon: Hash,
+      activeBg: 'bg-amber-500/10',
+      activeText: 'text-amber-400',
+      activeIndicator: 'bg-gradient-to-r from-amber-500 to-yellow-500 shadow-amber-500/50',
+    },
+    {
+      id: 'exams',
+      label: 'Exams',
+      icon: HelpCircle,
+      activeBg: 'bg-emerald-500/10',
+      activeText: 'text-emerald-400',
+      activeIndicator: 'bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/50',
+    },
+    {
+      id: 'groups',
+      label: 'Groups',
+      icon: Users,
+      activeBg: 'bg-blue-500/10',
+      activeText: 'text-blue-400',
+      activeIndicator: 'bg-gradient-to-r from-blue-500 to-cyan-500 shadow-blue-500/50',
+    },
   ];
 
   return (
@@ -38,7 +87,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
               <div
                 className={`p-1.5 rounded-xl transition-all duration-300 transform group-active:scale-90 ${
                   isActive
-                    ? 'bg-rose-500/10 text-rose-400 scale-110'
+                    ? `${tab.activeBg} ${tab.activeText} scale-110`
                     : 'text-slate-400 group-hover:text-slate-200'
                 }`}
               >
@@ -49,7 +98,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
               <span
                 className={`text-[9.5px] font-bold mt-1 tracking-tight transition-all duration-300 ${
                   isActive
-                    ? 'text-rose-400 font-extrabold transform scale-105'
+                    ? `${tab.activeText} font-extrabold transform scale-105`
                     : 'text-slate-500'
                 }`}
               >
@@ -58,7 +107,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
 
               {/* Active Dot / Micro-bar Indicator */}
               {isActive && (
-                <div className="absolute bottom-0 w-6 h-0.5 bg-gradient-to-r from-rose-500 to-orange-500 rounded-full shadow-lg shadow-rose-500/50 animate-pulse" />
+                <div className={`absolute bottom-0 w-6 h-0.5 rounded-full shadow-lg animate-pulse ${tab.activeIndicator}`} />
               )}
             </button>
           );

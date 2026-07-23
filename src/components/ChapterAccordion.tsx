@@ -59,6 +59,7 @@ export const ChapterAccordion: React.FC<ChapterAccordionProps> = ({
               item={item}
               isCompleted={!!completedMap[item.id]}
               onToggleComplete={onToggleComplete}
+              category="minna"
             />
           ))}
         </div>

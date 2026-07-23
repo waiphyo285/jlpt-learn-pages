@@ -107,16 +107,15 @@ export const N5HubPage: React.FC = () => {
           <div className="max-w-3xl relative z-10">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 text-rose-400 text-xs font-semibold border border-rose-500/20 mb-4">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Study Resource Portal</span>
+              <span>Learn JLPT N5 Easily</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-              Master JLPT N5 Easily <br />
               <span className="text-gradient">Structured Video Lessons & Notes</span>
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-              JLPT or Nat Test N5 ဖြေဆိုမည့် ကျောင်းသားများအတွက် Video များနှင့် စာအုပ် လေ့ကျင့်ခန်းများ၊ Kanji၊ Mock Exam Links များကို အစဉ်လိုက် လေ့လာနိုင်ရန် စနစ်တကျ စုစည်းပေးထားသော Web Portal ဖြစ်ပါသည်။
+              JLPT or Nat Test N5 ဖြေဆိုမည့် ကျောင်းသား/သူများအတွက် Video များနှင့် စာအုပ် လေ့ကျင့်ခန်းများ၊ Kanji၊ Mock Exam Links များကို အစဉ်လိုက် လေ့လာနိုင်ရန် စနစ်တကျ စုစည်းပေးထားသော Web Portal ဖြစ်ပါသည်။
             </p>
 
             {/* Quick Actions */}
@@ -138,7 +137,7 @@ export const N5HubPage: React.FC = () => {
                 className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-xs sm:text-sm transition-colors flex items-center space-x-2"
               >
                 <Send className="w-4 h-4 text-rose-400" />
-                <span>Sensei Acc (Telegram)</span>
+                <span>Sensei Yamin (@yaminjlc33)</span>
               </a>
             </div>
           </div>
@@ -152,47 +151,47 @@ export const N5HubPage: React.FC = () => {
         />
 
         {/* Search & Tabs Controls */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
+        <div className="sticky top-20 z-40 bg-[#0b0f19]/95 backdrop-blur-md py-4 border-b border-slate-800/50 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Tabs */}
           <div className="hidden md:flex items-center space-x-1 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
             <button
               onClick={() => setActiveTab('all')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'all' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'all' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <Layers className="w-3.5 h-3.5" />
               <span>All Resources</span>
             </button>
             <button
               onClick={() => setActiveTab('minna')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'minna' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'minna' ? 'bg-rose-600 text-white shadow-md shadow-rose-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Minna Ch 1-25</span>
             </button>
             <button
               onClick={() => setActiveTab('basic')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'basic' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'basic' ? 'bg-orange-600 text-white shadow-md shadow-orange-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <Video className="w-3.5 h-3.5" />
               <span>Basic Videos (1-29)</span>
             </button>
             <button
               onClick={() => setActiveTab('kanji')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'kanji' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'kanji' ? 'bg-amber-600 text-white shadow-md shadow-amber-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <Hash className="w-3.5 h-3.5" />
               <span>Kanji Days</span>
             </button>
             <button
               onClick={() => setActiveTab('exams')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'exams' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'exams' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Mock Exams</span>
             </button>
             <button
               onClick={() => setActiveTab('groups')}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'groups' ? 'bg-rose-600 text-white shadow-md shadow-rose-950' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 ${activeTab === 'groups' ? 'bg-blue-600 text-white shadow-md shadow-blue-950/80' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}`}
             >
               <Users className="w-3.5 h-3.5" />
               <span>Discussion Groups</span>
@@ -269,6 +268,7 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
+                  category="basic"
                 />
               ))}
             </div>
@@ -280,6 +280,7 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
+                  category="basic"
                 />
               ))}
             </div>
@@ -306,6 +307,7 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
+                  category="kanji"
                 />
               ))}
             </div>
@@ -345,6 +347,7 @@ export const N5HubPage: React.FC = () => {
                       }}
                       isCompleted={!!completedMap[`${exam.id}-paper`]}
                       onToggleComplete={toggleComplete}
+                      category="exams"
                     />
 
                     <LessonCard
@@ -356,6 +359,7 @@ export const N5HubPage: React.FC = () => {
                       }}
                       isCompleted={!!completedMap[`${exam.id}-key`]}
                       onToggleComplete={toggleComplete}
+                      category="exams"
                     />
                   </div>
                 </div>
@@ -384,6 +388,7 @@ export const N5HubPage: React.FC = () => {
                   item={item}
                   isCompleted={!!completedMap[item.id]}
                   onToggleComplete={toggleComplete}
+                  category="groups"
                 />
               ))}
             </div>

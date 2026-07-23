@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-semibold text-white mb-3">Quick Support & Q&A</h4>
             <p className="text-xs text-slate-400 mb-3">
-              For course questions, textbook details, or study guidance, contact via Telegram:
+              For course enrollment questions, textbook details, class schedules, or study guidance, feel free to contact via Telegram to get direct, friendly teacher support at any time:
             </p>
             <a
               href="https://t.me/yaminjlc33"
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               className="inline-flex items-center space-x-2 text-xs font-semibold text-rose-400 hover:text-rose-300"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>Sensei Acc (@yaminjlc33)</span>
+              <span>Sensei Yamin (@yaminjlc33)</span>
             </a>
           </div>
 
