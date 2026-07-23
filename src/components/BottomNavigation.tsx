@@ -29,20 +29,20 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
       activeIndicator: 'bg-gradient-to-r from-indigo-500 to-violet-500 shadow-indigo-500/50',
     },
     {
+      id: 'basic',
+      label: 'Basic',
+      icon: Video,
+      activeBg: 'bg-orange-500/10',
+      activeText: 'text-orange-400',
+      activeIndicator: 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/50',
+    },
+    {
       id: 'minna',
       label: 'Minna',
       icon: BookOpen,
       activeBg: 'bg-rose-500/10',
       activeText: 'text-rose-400',
       activeIndicator: 'bg-gradient-to-r from-rose-500 to-pink-500 shadow-rose-500/50',
-    },
-    {
-      id: 'basic',
-      label: 'Videos',
-      icon: Video,
-      activeBg: 'bg-orange-500/10',
-      activeText: 'text-orange-400',
-      activeIndicator: 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/50',
     },
     {
       id: 'kanji',
